@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VaillantInterface>
+	<sender IP ="192.168.2.112" name="arduino"> </sender>
+<data>
+	<date date="1.1.2014"> </date>
+	<time time="14:23:12"> </time>
+	<TempOut value="3" unit="°C"> </TempOut>
+	<TempVorlauf value="30" unit="°C"> </TempVorlauf>
+	<TempQuelle value ="12" unit="°C"> </TempQuelle>
+	<HeizLeistungMomentan value ="8" unit="kW"></HeizLeistungMomentan>
+</data>
+</VaillantInterface>

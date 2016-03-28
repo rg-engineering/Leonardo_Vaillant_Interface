@@ -1,0 +1,8 @@
+﻿* DHCP hinzufügen -> getIP
+* MAC einstellbar
+
+* Fehlermeldungen erkennen und übertragen
+
+ * Logging über WebInterface?
+
+ * Daten senden
