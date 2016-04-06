@@ -127,7 +127,18 @@ void WebServerLoop()
 					client.print("<Status value ='");
 					client.print(sCurrentState);
 					client.println("' unit=''></Status>");
+
+					client.print("<Error value ='");
+					client.print(nCurrentError);
+					client.print(" (");
+					client.print(sCurrentError);
+					client.println(") ' unit=''></Error>");
 					
+					client.print("<Warning value ='");
+					client.print(nCurrentWarning);
+					client.print(" (");
+					client.print(sCurrentWarning);
+					client.println(") ' unit=''></Warning>");					
 					
 					
 					for (int i=0; i<nTempExternCount;i++)

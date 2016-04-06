@@ -20,6 +20,8 @@ void GetDataFromTelegram();
 bool IsBroadCast();
 void PrintData(char *data, int length);
 
+void Extract_B503();
+void Extract_B504();
 void Extract_B509();
 void Extract_0700();
 

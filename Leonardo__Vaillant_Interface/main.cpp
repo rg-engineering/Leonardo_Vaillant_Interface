@@ -26,7 +26,8 @@ extern "C"
 #define USB_PID 0x8036
 #include <CDC.cpp>
 #include <USBCore.cpp>
-#include <HID.cpp>
+//#include <HID.cpp>
+#include <PluggableUSB.cpp>
 
 // Other source files, depends on your program which you need
 #include <Print.cpp>
@@ -73,6 +74,10 @@ unsigned int nTempExternID[10];
 double fTempExtern[10];
 unsigned int nTempExternCount;
 char sCurrentState[20];
+char sCurrentError[2];
+char sCurrentWarning[2];
+int nCurrentError;
+int nCurrentWarning;
 
 bool bDebug=false;
 
@@ -97,7 +102,7 @@ int main(void)
 	
 	sprintf (sName,"Arduino");
 	sprintf (sVersionName, "Vaillant Interface");
-	sprintf ( sVersionNumber,"1.5.1");
+	sprintf ( sVersionNumber,"1.5.2");
 	
 	sprintf(sDate,"1.1.1970");
 	sprintf(sTime,"7:30:00");
@@ -109,6 +114,14 @@ int main(void)
 	sprintf(sTempQuelleUnit,"C");
 	fHeizLeistungMomentan=-1;
 	sprintf(sHeizLeistungMomentanUnit,"kW");
+	
+	sCurrentError[0]=0xff;
+	sCurrentError[1]=0xff;
+	sCurrentWarning[0]=0xff;
+	sCurrentWarning[1]=0xff;
+	int nCurrentError=-1;
+	int nCurrentWarning=-1;
+
 	
 	sprintf (sCurrentState,"unknown");
 	// Open serial communications and wait for port to open:

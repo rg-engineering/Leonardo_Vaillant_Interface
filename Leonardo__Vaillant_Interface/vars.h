@@ -33,6 +33,8 @@ extern unsigned int nTempExternID[10];
 extern unsigned int nTempExternCount;
 extern char sTempExternUnit[3];
 extern char sCurrentState[20];
+extern char sCurrentError[2];
+extern char sCurrentWarning[2];
 
 extern int nSecond;
 extern int nMinute;
@@ -41,6 +43,9 @@ extern int nDay;
 extern int nMonth;
 extern int nDayOfWeek;
 extern int nYear;
+
+extern int nCurrentError;
+extern int nCurrentWarning;
 
 
 #endif /* VARS_H_ */

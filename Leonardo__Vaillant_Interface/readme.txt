@@ -25,14 +25,17 @@
  1.5.1
  * Atmel studio 7.0 and Arduino IDE 1.6.5
 
+ 1.5.2
+ * Fehlercode und Warnungscode aud B5 03
+ * Arduino IDE 1.6.7
 
  Hints
  * this project uses arduino libs
  * installation path of arduino is C:\Program Files (x86)\Arduino
  * path must be set under "Eigenschaften" "ToolChain" for C and C++
  * some sources from arduino are used as link here in project. (see folder "cores" and "Libs"). They point to the same arduino path
- * arduino version is 1.0.6
- * This project was created in Atmel Studio 6.2 SP1
+ * arduino version is 1.6.7
+ * This project was created in Atmel Studio 6.2 SP1 and updatet to 7.0
 
  * download to Arduino Leonardo using USB via "externe Tools"
 	Titel: "Arduino Lenardo Upload"

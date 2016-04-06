@@ -250,19 +250,74 @@ bool IsBroadCast()
     return bRet;
 }
 
+
+//siehe Spec_Prot_7_V1_6_3_D.pdf
 void GetDataFromTelegram()
 {
-	if (cCommand == 0xB5 && cSubCommand == 0x09)
+	if (cCommand == 0xB5 && cSubCommand == 0x03)
+	{
+		Extract_B503();
+	}
+	else if (cCommand == 0xB5 && cSubCommand == 0x04)
+	{
+		Extract_B504();
+	}
+	else if (cCommand == 0xB5 && cSubCommand == 0x09)
 	{
 		Extract_B509();
 	}
-
 	else if (cCommand == 0x07 && cSubCommand == 0x00)
 	{
 		Extract_0700();
 	}
 }
 
+void Extract_B504()
+{
+}
+
+void Extract_B503()
+{
+	if (cDataLength == 2)
+	{
+		if (cData[0]==0x00 && cData[1]==0x01) //aktueller Fehler
+		{
+			sCurrentError[0]=cAnswerData[0];
+			sCurrentError[1]=cAnswerData[1];
+			if (cAnswerData[0] != 0xFF && cAnswerData[1] != 0xFF)
+			{
+				nCurrentError=strtoul(cAnswerData,NULL,16);
+			}
+			else
+			{
+				nCurrentError=-1;
+			}
+		}
+		else if (cData[0]==0x00 && cData[1]==0x02) //aktuelle Warnung
+		{
+			sCurrentWarning[0]=cAnswerData[0];
+			sCurrentWarning[1]=cAnswerData[1];
+			if (cAnswerData[0] != 0xFF && cAnswerData[1] != 0xFF)
+			{
+				nCurrentWarning=strtoul(cAnswerData,NULL,16);
+			}
+			else
+			{
+				nCurrentWarning=-1;
+			}
+		}
+		else if (cData[0]==0x01 && cData[1]==0x01) //Fehlerhistorie
+		{
+		}
+		else if (cData[0]==0x01 && cData[1]==0x02)  //Warnungshistorie
+		{
+		}
+	 }
+	 else if (cDataLength == 3)
+	 {
+		       
+	 }
+}
 
 void Extract_B509()
 {
